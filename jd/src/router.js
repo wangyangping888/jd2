@@ -6,6 +6,7 @@ import Category from './views/Category.vue'
 import Pin from './views/Pin.vue'
 import Cart from './views/Cart.vue'
 import User from './views/User.vue'
+import Product from './views/Product.vue'
 
 // https://router.vuejs.org/zh/
 
@@ -35,6 +36,10 @@ export default new Router({
       path: '/user',
       name: 'user',
       component: User
+    },{
+    	path:"/product/:id",
+    	name:'product',
+    	component:Product
     }]
 })
 

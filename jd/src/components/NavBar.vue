@@ -2,7 +2,7 @@
 
 	<ul class="nav-bar">
 		
-		<li v-for="(item,index) in nav">
+		<li v-for="(item,index) in nav" v-bind:key="index">
 			<Router-Link :to="item.url">
 				<img :src="(item.url==current)?item.active_icon:item.icon" />
 			</Router-Link>
