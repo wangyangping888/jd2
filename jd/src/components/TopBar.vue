@@ -92,6 +92,7 @@
 		top: 0;
 		left: 0;
 		border-bottom: 1px solid #e5e5e5;
+		z-index: 9999;
 		.go-back {
 			width: 0.8rem;
 			height: 0.9rem;

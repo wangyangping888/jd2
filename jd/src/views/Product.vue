@@ -7,7 +7,7 @@
             class="flex-item"
             :class="{active:index==navIndex}"
             v-for="(item,index) in nav"
-            @click="navIndex=index;"
+            @click="navIndex=index; scrollTop(item.top)"
             v-bind:key="index"
           >
             <span v-text="item.title"></span>
@@ -15,6 +15,21 @@
         </ul>
       </div>
     </top-bar>
+    <div style="height: 0.9rem;"   >
+    </div>
+   
+    <div style="height: 1000px;" ref="product"> <swiper-bar></swiper-bar></div>
+    <div style="height:1000px" ref="comment">
+      <h1>评价</h1>
+    </div>
+    <div style="height:1000px" ref="detail">
+      <h1>详情</h1>
+    </div>
+    <div style="height:1000px" ref="recommend">
+      <h1>推荐</h1>
+    </div>
+    <return-bar></return-bar>
+    <btn-bar></btn-bar>
 
     <!-- <h1>{{ $route.params.id  }}</h1> -->
   </div>
@@ -22,29 +37,69 @@
 
 <script>
 import TopBar from "@/components/TopBar";
+import BtnBar from "@/components/BtnBar";
+import SwiperBar from "@/components/SwiperBar";
+import { setInterval, clearInterval } from 'timers';
+import { timeout } from 'q';
+import ReturnBar from "@/components/ReturnBar";
 export default {
   data() {
     return {
       navIndex: 0,
       nav: [
-        { title: "商品" },
-        { title: "评价" },
-        { title: "详情" },
-        { title: "推荐" }
+        { title: "商品",top:0 },
+        { title: "评价",top:0 },
+        { title: "详情",top:0  },
+        { title: "推荐",top:0  }
       ]
     };
   },
   components: {
-    TopBar
+    TopBar,
+    BtnBar,
+    SwiperBar,
+    ReturnBar,
   },
-  created() {
-    // 全局路由对象
-    console.log(this.$router);
-    // 当前页面的路由对象
-    console.log(this.$route);
+  methods:{
+     getTopOffset(){
+       this.nav[0].top=this.$refs['product'].offsetTop;
+       this.nav[1].top=this.$refs['comment'].offsetTop;
+       this.nav[2].top=this.$refs['detail'].offsetTop;
+       this.nav[3].top=this.$refs['recommend'].offsetTop;
+       console.log(this.nav)
 
-    //			console.log(this.$route.params.id);
-  }
+     },
+     scrollTop(val){
+       let scrollTop=document.documentElement.scrollTop||window.pageYOffset||document.body.scrollTop;
+       let target=val-50;
+       let duration=300;
+       let count=50;
+       let timeOut=duration/count;
+       let step=(target-scrollTop)/count;
+       let t=setInterval(()=>{
+               scrollTop+=step;
+               document.documentElement.scrollTop=scrollTop;
+               count--;
+               if(count<=0){
+                 clearInterval(t);
+               }
+       },timeout);
+        document.documentElement.scrollTop=val-50;
+     }
+  },
+  created(){
+    window.addEventListener('scroll',()=>{
+      var scrollTop=document.documentElement.scrollTop||window.pageYOffset||document.body.scrollTop;
+      this.nav.forEach((item,index)=> {
+        if(Math.abs(item.top-scrollTop)<100){
+          this.navIndex=index;
+        }
+      });
+    })
+  },
+  mounted(){
+    this.getTopOffset();
+    }
 };
 </script>
 

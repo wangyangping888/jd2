@@ -9,6 +9,10 @@
 		/* 假定设计稿 750px的情况下 ，那么 1rem = 100px */
 		font-size: calc(100vw/7.5);
 	}
+	p{
+		padding:0rem;
+		margin:0rem;
+	}
 	
 	body {
 		margin: 0;
