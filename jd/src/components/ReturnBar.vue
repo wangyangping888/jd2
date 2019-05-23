@@ -1,10 +1,16 @@
 <template>
-  <div class="return">
+  <div class="return" @click="returnBack">
     <div class="tupiao"></div>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  methods:{
+      returnBack(){
+        document.documentElement.scrollTop=0;
+      }
+  }
+};
 </script>
 <style lang="less">
 .return {
