@@ -13,7 +13,10 @@
 		padding:0rem;
 		margin:0rem;
 	}
-	
+	html,body,#app{
+		width: 100%;
+		height: 100%;
+	}
 	body {
 		margin: 0;
 		background-color: #f6f6f6;
