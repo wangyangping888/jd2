@@ -9,14 +9,7 @@
 		/* 假定设计稿 750px的情况下 ，那么 1rem = 100px */
 		font-size: calc(100vw/7.5);
 	}
-	p{
-		padding:0rem;
-		margin:0rem;
-	}
-	html,body,#app{
-		width: 100%;
-		height: 100%;
-	}
+	
 	body {
 		margin: 0;
 		background-color: #f6f6f6;
@@ -24,6 +17,10 @@
 		font-family: -apple-system, Helvetica, sans-serif;
 		line-height: 1.5;
 		color: #333;
+	}
+	
+	html,body,#app{
+		height: 100%;
 	}
 	
 	a {

@@ -2,7 +2,7 @@
 
 	<ul class="nav-bar">
 		
-		<li v-for="(item,index) in nav" v-bind:key="index">
+		<li v-for="(item,index) in nav" :key="index">
 			<Router-Link :to="item.url">
 				<img :src="(item.url==current)?item.active_icon:item.icon" />
 			</Router-Link>
@@ -19,28 +19,28 @@
 				current: '/',
 				nav: [{
 						url: "/",
-						icon: require('@/assets/images/icons/home.png'),
-						active_icon: require('@/assets/images/icons/home_active.png')
+						icon: require('@/assets/icons/home.png'),
+						active_icon: require('@/assets/icons/home_active.png')
 					},
 					{
 						url: "/category",
-						icon: require('@/assets/images/icons/category.png'),
-						active_icon: require('@/assets/images/icons/category_active.png')
+						icon: require('@/assets/icons/category.png'),
+						active_icon: require('@/assets/icons/category_active.png')
 					},
 					{
 						url: "/pin",
-						icon: require('@/assets/images/icons/pin.png'),
-						active_icon: require('@/assets/images/icons/pin_active.png')
+						icon: require('@/assets/icons/pin.png'),
+						active_icon: require('@/assets/icons/pin_active.png')
 					},
 					{
 						url: "/cart",
-						icon: require('@/assets/images/icons/cart.png'),
-						active_icon: require('@/assets/images/icons/cart.png')
+						icon: require('@/assets/icons/cart.png'),
+						active_icon: require('@/assets/icons/cart.png')
 					},
 					{
-						url: "/user",
-						icon: require('@/assets/images/icons/user.png'),
-						active_icon: require('@/assets/images/icons/user_active.png')
+						url: "/Login",
+						icon: require('@/assets/icons/user.png'),
+						active_icon: require('@/assets/icons/user_active.png')
 					},
 				]
 			};

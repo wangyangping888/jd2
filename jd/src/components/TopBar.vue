@@ -1,5 +1,5 @@
 <template>
-	
+
 	<div id="top-bar" class="flex">
 		<div class="go-back" @click="goBack"></div>
 		<div class="flex-item">
@@ -7,92 +7,81 @@
 		</div>
 		<div class="menu" @click="show=true;">
 			<ul v-show="show">
-				<li v-for="(item,index) in menu" v-bind:key="index">
-                    <router-link :to="item.url" @click="show=false;">
-						<img :src="item.icon" />
+				<li v-for="(item,index) in menu" >
+					<router-link :to="item.url" @click="show=false;">
+						<span class="fa" :class="item.icon"></span>
 						<strong v-text="item.title"></strong>
 					</router-link>
-                </li>
-				
+				</li>
 			</ul>
 		</div>
-		
 		<div class="mask" v-show="show" @click="show=false;"></div>
 	</div>
-	
-	
+
 </template>
 
 <script>
-	
-	export default{
-		
-		data(){
+	export default {
+
+		data() {
 			return {
-                show:false,
-                menu: [{
+				show: false,
+				menu: [{
 						title: "首页",
 						url: "/",
-						icon: require('@/assets/tubiao/1.png')
+						icon: "fa-home"
 					},
 					{
 						title: "分类搜索",
 						url: "#",
-						icon: require('@/assets/tubiao/2.png')
+						icon: "fa-search"
 					},
 					{
 						title: "我的京东",
 						url: "/user",
-						icon: require('@/assets/tubiao/3.png')
+						icon: "fa-user"
 					},
 					{
 						title: "浏览记录",
 						url: "#",
-						icon: require('@/assets/tubiao/4.png')
+						icon: "fa-paw"
 					},
 					{
 						title: "我的关注",
 						url: "#",
-						icon: require('@/assets/tubiao/5.png')
+						icon: "fa-heart"
 					},
 					{
 						title: "分享",
 						url: "#",
-						icon:require('@/assets/tubiao/6.png')
+						icon: "fa-share-square-o"
 					},
 				]
 			};
 		},
-		methods:{
-			goBack(){
+		methods: {
+			goBack() {
 				//  router & route 区别是什么？？？？
 				this.$router.go(-1);
-//				this.$router.push("/");
-//				this.$router.push({path:"/"});
-//				this.$router.push({name:"home"});
+				//				this.$router.push("/");
+				//				this.$router.push({path:"/"});
+				//				this.$router.push({name:"home"});
 			}
 		}
-		
-		
-		
-		
-		
+
 	}
-	
-	
 </script>
 
 <style lang="less">
-	
-		#top-bar {
+	#top-bar {
 		width: 100%;
 		height: 0.9rem;
 		position: fixed;
+		z-index: 9999;
 		background-color: #fff;
 		top: 0;
 		left: 0;
 		border-bottom: 1px solid #e5e5e5;
-		z-index: 9999;
 		.go-back {
 			width: 0.8rem;
 			height: 0.9rem;
@@ -118,34 +107,23 @@
 				border-radius: 4px;
 				z-index: 9999;
 				li {
-					
-					
+					margin-left: 0.8rem;
+					border-bottom: 1px solid hsla(0, 0%, 100%, .2);
 					line-height: 0.8rem;
-                    font-size: 0.28rem;
-                    text-align: center;
+					font-size: 0.28rem;
 				}
 				a {
-                    color: #FFFFFF;
-                    line-height: 0.8rem;
+					color: #FFFFFF;
 				}
-				img{
-                    display: inline-block;
-                    height:0.28rem;
-                  
-					line-height: 0.28rem;
-					width: 0.28rem;
+				span.fa {
+					line-height: 0.8rem;
+					width: 0.8rem;
 					position: absolute;
-                    left: 0.26rem;
-                    text-align: center;
-                    margin-top: 0.26rem;
-                    
+					left: 0;
+					text-align: center;
 				}
 				strong {
-                    font-weight: 400;
-                    margin-left: 0.8rem;
-                    border-bottom: 1px solid hsla(0, 0%, 100%, .2);
-                    width:1.7rem;
-                    display: inline-block;
+					font-weight: 400;
 				}
 			}
 		}
@@ -157,9 +135,12 @@
 			right: 0;
 			/*background-color: red;*/
 		}
+		
+		.title{
+			color: #333;
+			font-size: 0.36rem;
+			text-align:center;
+			line-height: 0.9rem;
+		}
 	}
-	
-	
-	
-	
 </style>

@@ -26,7 +26,9 @@
 			}
 		},
 		created(){
-			window.onscroll = ()=>{
+			
+			//添加滚动事件监听
+			window.addEventListener('scroll',()=>{
 				var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
 				if(scrollTop >=20){
 					this.isFixed = true;
@@ -34,7 +36,9 @@
 					this.isFixed = false;
 				}
 				
-			}
+			})
+			
+			
 		}
 	}
 	

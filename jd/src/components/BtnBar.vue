@@ -19,7 +19,7 @@
 			<div class="sku" v-show="show">
 
 				<div class="header">
-					<img src="@/assets/product_img/2-1.jpg">
+					<img src="../assets/images/product_1.jpg">
 					<p class="price">
 
 						￥ <em>399</em>.00

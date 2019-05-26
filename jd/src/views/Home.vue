@@ -4,8 +4,18 @@
   	
   	<swiper></swiper>
   	<quick-nav></quick-nav>
-  	<Buju-Nav></Buju-Nav>
-  	<Nav-Bar></Nav-Bar>
+  	
+  	<product-list></product-list>
+  		
+  		
+  
+  	
+  	
+  	<div style="height: 1000px;"></div>
+  	
+  	<back-top></back-top>
+  	
+  	<nav-bar></nav-bar>
   </div>
 </template>
 
@@ -15,8 +25,8 @@ import SearchBar from "@/components/SearchBar";
 import Swiper from "@/components/HomeSwiper";
 import QuickNav from "@/components/QuickNav";
 import NavBar from "@/components/NavBar";
-import BujuNav from "@/components/BujuNav";
-
+import ProductList from "@/components/ProductList";
+import BackTop from "@/components/BackTop";
 
 export default {
   name: 'home',
@@ -25,7 +35,18 @@ export default {
   	Swiper,
   	QuickNav,
   	NavBar,
-		BujuNav,
+  	ProductList,
+  	BackTop
   }
 }
 </script>
+
+<style >
+	
+	.box{
+		width: 200px;
+		height: 200px;
+		background-color: red; 	
+	}
+	 
+</style>
