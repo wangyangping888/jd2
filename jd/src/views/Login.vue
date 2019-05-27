@@ -39,6 +39,7 @@ export default {
   methods:{
       login(){
           if(this.username=="admin"&&this.password=="admin"){
+              this.$store.commit('setLogin',true);
               this.$router.push("/user")
           }else{
               this.msg="用户名或密码错误！";

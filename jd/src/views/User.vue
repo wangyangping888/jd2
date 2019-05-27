@@ -3,7 +3,7 @@
 	<div>
 		
 		<div class="box"></div>
-		<h1>我的</h1>
+		<h1>我的登录状态：{{$store.state.login}}</h1>
 		<nav-bar></nav-bar>
 	</div>
 	
